@@ -79,7 +79,7 @@ class Home extends StatelessWidget {
 
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(left: 20),
+                    padding: EdgeInsets.only(left: 0),
                     child: Text(
                       'Message of the Month',
                       style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12, fontFamily: 'Montserrat')),
@@ -104,7 +104,10 @@ class Home extends StatelessWidget {
               ),
 
               Container(
-                borderRadius: BorderRadius.circular(25.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25.0),
+                ),
+                
                 padding: EdgeInsets.all(20),
                 child: Image.asset(
                   'assets/images/newmonth.jpg', 
