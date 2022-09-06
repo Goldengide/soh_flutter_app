@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -9,7 +10,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('SSOH')),
+      appBar: AppBar(title: Text('Welcome')),
       body: ListView(
         padding: EdgeInsets.all(0.0),
         children: <Widget>[
@@ -41,7 +42,7 @@ class Home extends StatelessWidget {
                       alignment: Alignment.center,
                       child: Text(
                         'Welcome to Church'.toUpperCase(),
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16, fontFamily: 'Montserrat')
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)
                       )
                     )
                   )
@@ -61,7 +62,7 @@ class Home extends StatelessWidget {
                       alignment: Alignment.center,
                       child: Text(
                         'Sundays 8:00AM | Tuesdays & Thursdays 4:30pm'.toUpperCase(),
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12, fontFamily: 'Montserrat')
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12)
                         // padding: EdgeInsets.symmetric(40.0, 50.0),
                       )
                     )
@@ -79,10 +80,13 @@ class Home extends StatelessWidget {
 
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(left: 0),
+                    padding: EdgeInsets.only(top: 20)
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 20),
                     child: Text(
                       'Message of the Month',
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12, fontFamily: 'Montserrat')),
+                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 12)),
                   ),
                   Padding(
                     padding: EdgeInsets.only(right: 20),
@@ -105,10 +109,13 @@ class Home extends StatelessWidget {
 
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25.0),
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                
-                padding: EdgeInsets.all(20),
+                width: MediaQuery.of(context).size.width,
+                // height: ,
+                margin: EdgeInsets.all(20),
+                padding: EdgeInsets.all(0),
                 child: Image.asset(
                   'assets/images/newmonth.jpg', 
                   width: MediaQuery.of(context).size.width,
@@ -123,7 +130,7 @@ class Home extends StatelessWidget {
                     padding: EdgeInsets.all(10),
                     child: Text(
                       'September  - Our month of Divine Surprises and Perfect Restoration', 
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12, fontFamily: 'Montserrat')
+                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 12)
                     )
                 )
                 ]
@@ -137,7 +144,27 @@ class Home extends StatelessWidget {
           
 
         ]
-      )
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.apps, color: Colors.black),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.video, color: Colors.black),
+            label: 'Service',
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.bookBible, color: Colors.black),
+            label: 'Bible',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.apps, color: Colors.black),
+            label: 'More',
+          ),
+        ],
+      ),
     );
   }
 }
