@@ -80,9 +80,6 @@ class Home extends StatelessWidget {
 
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(top: 20)
-                  ),
-                  Padding(
                     padding: EdgeInsets.only(left: 20),
                     child: Text(
                       'Message of the Month',
@@ -108,19 +105,22 @@ class Home extends StatelessWidget {
               ),
 
               Container(
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.circular(20),
-                ),
                 width: MediaQuery.of(context).size.width,
                 // height: ,
                 margin: EdgeInsets.all(20),
                 padding: EdgeInsets.all(0),
-                child: Image.asset(
-                  'assets/images/newmonth.jpg', 
-                  width: MediaQuery.of(context).size.width,
-                  fit: BoxFit.cover,
-                  
+                child: Stack(
+                  // fit: StackFit.expand,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20.0),
+                      child: Image.asset(
+                        'assets/images/newmonth.jpg', 
+                        width: MediaQuery.of(context).size.width,
+                        fit: BoxFit.cover
+                      )
+                    )
+                  ]
                 )
               ),
 
@@ -130,7 +130,77 @@ class Home extends StatelessWidget {
                     padding: EdgeInsets.all(10),
                     child: Text(
                       'September  - Our month of Divine Surprises and Perfect Restoration', 
-                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 12)
+                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 12),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2
+                    )
+                )
+                ]
+              )
+
+            ]
+          ),
+          Column(
+            children: <Widget>[
+              Row(
+                // padding: EdgeInsets.symmetric(30.0, 50.0),
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Text(
+                      'Early Morning Prayer',
+                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 12)),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 20),
+                    child: IconButton(
+                      iconSize: 40, 
+                      icon: Icon(Icons.arrow_forward), 
+                      color: Colors.black, 
+                      onPressed: () => {
+                        // this.color
+                      }
+                    ),
+
+                  )
+                  
+                  
+                  // Icon(icon: Icons.star, color: Colors.black)
+
+                ]
+              ),
+
+              Container(
+                width: MediaQuery.of(context).size.width,
+                // height: ,
+                margin: EdgeInsets.all(20),
+                padding: EdgeInsets.all(0),
+                child: Stack(
+                  // fit: StackFit.expand,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20.0),
+                      child: Image.asset(
+                        'assets/images/early-morning-prayers.jpg', 
+                        width: MediaQuery.of(context).size.width,
+                        fit: BoxFit.cover
+                      )
+                    )
+                  ]
+                )
+              ),
+
+              Row(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      'Early Morning Prayer Meetings is on Mixlr and at Mon - Sat by 6:30 GMT +1', 
+                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 12),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2
                     )
                 )
                 ]
@@ -148,19 +218,19 @@ class Home extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.apps, color: Colors.black),
+            icon: Icon(Icons.apps, color: Colors.black, size: 50),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.video, color: Colors.black),
+            icon: Icon(FontAwesomeIcons.video, color: Colors.black, size: 50),
             label: 'Service',
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.bookBible, color: Colors.black),
+            icon: FaIcon(FontAwesomeIcons.bookBible, color: Colors.black, size: 50),
             label: 'Bible',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.apps, color: Colors.black),
+            icon: Icon(Icons.apps, color: Colors.black, size: 50),
             label: 'More',
           ),
         ],
