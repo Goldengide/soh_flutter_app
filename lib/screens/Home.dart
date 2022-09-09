@@ -18,7 +18,7 @@ class Home extends StatelessWidget {
             width: double.infinity,
             height: 250.0,
             padding: EdgeInsets.all(0.0),
-            margin: EdgeInsets.all(0.0),
+            margin: EdgeInsets.all(0),
 
             child: Stack(
               // fit: StackFit.expand,
@@ -80,7 +80,7 @@ class Home extends StatelessWidget {
 
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(left: 20),
+                    padding: EdgeInsets.only(left: 15, top: 20),
                     child: Text(
                       'Message of the Month',
                       style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 12)),
@@ -88,7 +88,7 @@ class Home extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(right: 20),
                     child: IconButton(
-                      iconSize: 40, 
+                      iconSize: 20, 
                       icon: Icon(Icons.arrow_forward), 
                       color: Colors.black, 
                       onPressed: () => {
@@ -107,13 +107,13 @@ class Home extends StatelessWidget {
               Container(
                 width: MediaQuery.of(context).size.width,
                 // height: ,
-                margin: EdgeInsets.all(20),
+                margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 padding: EdgeInsets.all(0),
                 child: Stack(
                   // fit: StackFit.expand,
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.circular(20.0),
+                      borderRadius: BorderRadius.circular(10.0),
                       child: Image.asset(
                         'assets/images/newmonth.jpg', 
                         width: MediaQuery.of(context).size.width,
@@ -124,18 +124,15 @@ class Home extends StatelessWidget {
                 )
               ),
 
-              Row(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text(
+              Container(
+                width: MediaQuery.of(context).size.width,
+                padding: EdgeInsets.only(left: 15),
+                child:Text(
                       'September  - Our month of Divine Surprises and Perfect Restoration', 
-                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 12),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2
+                      style: TextStyle(color: Colors.black, fontSize: 12),
+                      // overflow: TextOverflow.ellipsis,
+                      softWrap: true
                     )
-                )
-                ]
               )
 
             ]
@@ -148,7 +145,7 @@ class Home extends StatelessWidget {
 
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(left: 20),
+                    padding: EdgeInsets.only(left: 20, top: 20),
                     child: Text(
                       'Early Morning Prayer',
                       style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 12)),
@@ -156,7 +153,7 @@ class Home extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(right: 20),
                     child: IconButton(
-                      iconSize: 40, 
+                      iconSize: 20, 
                       icon: Icon(Icons.arrow_forward), 
                       color: Colors.black, 
                       onPressed: () => {
@@ -175,7 +172,7 @@ class Home extends StatelessWidget {
               Container(
                 width: MediaQuery.of(context).size.width,
                 // height: ,
-                margin: EdgeInsets.all(20),
+                margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 padding: EdgeInsets.all(0),
                 child: Stack(
                   // fit: StackFit.expand,
@@ -192,45 +189,39 @@ class Home extends StatelessWidget {
                 )
               ),
 
-              Row(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text(
+              Container(
+                width: MediaQuery.of(context).size.width,
+                padding: EdgeInsets.only(left: 20),
+                child:Text(
                       'Early Morning Prayer Meetings is on Mixlr and at Mon - Sat by 6:30 GMT +1', 
-                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 12),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2
+                      style: TextStyle(color: Colors.black, fontSize: 12),
+                      // overflow: TextOverflow.ellipsis,
+                      softWrap: true
                     )
-                )
-                ]
               )
 
             ]
-          )
+          ),
           
           
-
-          
-
         ]
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.apps, color: Colors.black, size: 50),
+            icon: Icon(Icons.apps, color: Colors.black, size: 30),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.video, color: Colors.black, size: 50),
+            icon: Icon(FontAwesomeIcons.video, color: Colors.black, size: 30),
             label: 'Service',
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.bookBible, color: Colors.black, size: 50),
+            icon: FaIcon(FontAwesomeIcons.bookBible, color: Colors.black, size: 30),
             label: 'Bible',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.apps, color: Colors.black, size: 50),
+            icon: Icon(Icons.apps, color: Colors.black, size: 30),
             label: 'More',
           ),
         ],
