@@ -77,6 +77,7 @@ class Home extends StatelessWidget {
               Row(
                 // padding: EdgeInsets.symmetric(30.0, 50.0),
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
 
                 children: <Widget>[
                   Padding(
@@ -142,6 +143,7 @@ class Home extends StatelessWidget {
               Row(
                 // padding: EdgeInsets.symmetric(30.0, 50.0),
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
 
                 children: <Widget>[
                   Padding(
