@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'screens/Home.dart';
+import 'screens/DetailScreen.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -24,9 +25,17 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blue,
             fontFamily: 'Montserrat'
           ),
+          initialRoute: '/',
+          routes: {
+            // When navigating to the "/" route, build the FirstScreen widget.
+            'homeScreen': (context) => const Home(),
+            // When navigating to the "/second" route, build the SecondScreen widget.
+            DetailScreen.routeName: (context) => const DetailScreen(),
+          },
           home: child,
         ); 
       },
+      
       child: Home(),
     );
     

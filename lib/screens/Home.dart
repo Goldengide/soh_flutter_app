@@ -1,10 +1,88 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'DetailScreen.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
 
   // Widget headerSection = +
+
+  Column _buildSectionColumn(
+    BuildContext context, 
+    String title, 
+    String imageUrl, 
+    String desc
+    ) {
+    return Column(
+            children: <Widget>[
+              Row(
+                // padding: EdgeInsets.symmetric(30.0, 50.0),
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(left: 15, top: 20),
+                    child: Text(
+                      title,
+                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 14)),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 20),
+                    child: IconButton(
+                      iconSize: 20, 
+                      icon: Icon(Icons.arrow_forward), 
+                      color: Colors.black, 
+                      onPressed: () => {
+                        Navigator.pushNamed(
+                          context, 
+                          DetailScreen.routeName,
+                          arguments: ScreenArguments(title, imageUrl)
+                          )
+                      },
+                    ),
+                  )
+                  
+                  
+                  // Icon(icon: Icons.star, color: Colors.black)
+
+                ]
+              ),
+
+              Container(
+                width: MediaQuery.of(context).size.width,
+                // height: ,
+                margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                padding: EdgeInsets.all(0),
+                child: Stack(
+                  // fit: StackFit.expand,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: Image.asset(
+                        imageUrl, 
+                        width: MediaQuery.of(context).size.width,
+                        fit: BoxFit.cover
+                      )
+                    )
+                  ]
+                )
+              ),
+
+              Container(
+                width: MediaQuery.of(context).size.width,
+                padding: EdgeInsets.only(left: 15),
+                child:Text(
+                      desc, 
+                      style: TextStyle(color: Colors.black, fontSize: 12),
+                      // overflow: TextOverflow.ellipsis,
+                      softWrap: true
+                    )
+              )
+
+            ]
+    );
+  }
 
 
   @override
@@ -72,138 +150,28 @@ class Home extends StatelessWidget {
             ),
 
           ),
-          Column(
-            children: <Widget>[
-              Row(
-                // padding: EdgeInsets.symmetric(30.0, 50.0),
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(left: 15, top: 20),
-                    child: Text(
-                      'Message of the Month',
-                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 12)),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: 20),
-                    child: IconButton(
-                      iconSize: 20, 
-                      icon: Icon(Icons.arrow_forward), 
-                      color: Colors.black, 
-                      onPressed: () => {
-                        // this.color
-                      }
-                    ),
-
-                  )
-                  
-                  
-                  // Icon(icon: Icons.star, color: Colors.black)
-
-                ]
-              ),
-
-              Container(
-                width: MediaQuery.of(context).size.width,
-                // height: ,
-                margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                padding: EdgeInsets.all(0),
-                child: Stack(
-                  // fit: StackFit.expand,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(10.0),
-                      child: Image.asset(
-                        'assets/images/newmonth.jpg', 
-                        width: MediaQuery.of(context).size.width,
-                        fit: BoxFit.cover
-                      )
-                    )
-                  ]
-                )
-              ),
-
-              Container(
-                width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.only(left: 15),
-                child:Text(
-                      'September  - Our month of Divine Surprises and Perfect Restoration', 
-                      style: TextStyle(color: Colors.black, fontSize: 12),
-                      // overflow: TextOverflow.ellipsis,
-                      softWrap: true
-                    )
-              )
-
-            ]
+          
+          _buildSectionColumn(context, 
+            'Message of the Month', 
+            'assets/images/newmonth.jpg', 
+            'September  - Our month of Divine Surprises and Perfect Restoration'
           ),
-          Column(
-            children: <Widget>[
-              Row(
-                // padding: EdgeInsets.symmetric(30.0, 50.0),
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(left: 20, top: 20),
-                    child: Text(
-                      'Early Morning Prayer',
-                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 12)),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: 20),
-                    child: IconButton(
-                      iconSize: 20, 
-                      icon: Icon(Icons.arrow_forward), 
-                      color: Colors.black, 
-                      onPressed: () => {
-                        // this.color
-                      }
-                    ),
-
-                  )
-                  
-                  
-                  // Icon(icon: Icons.star, color: Colors.black)
-
-                ]
-              ),
-
-              Container(
-                width: MediaQuery.of(context).size.width,
-                // height: ,
-                margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                padding: EdgeInsets.all(0),
-                child: Stack(
-                  // fit: StackFit.expand,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(20.0),
-                      child: Image.asset(
-                        'assets/images/early-morning-prayers.jpg', 
-                        width: MediaQuery.of(context).size.width,
-                        fit: BoxFit.cover
-                      )
-                    )
-                  ]
-                )
-              ),
-
-              Container(
-                width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.only(left: 20),
-                child:Text(
-                      'Early Morning Prayer Meetings is on Mixlr and at Mon - Sat by 6:30 GMT +1', 
-                      style: TextStyle(color: Colors.black, fontSize: 12),
-                      // overflow: TextOverflow.ellipsis,
-                      softWrap: true
-                    )
-              )
-
-            ]
+          
+          _buildSectionColumn(context, 
+            'Early Morning Prayer', 
+            'assets/images/early-morning-prayers.jpg', 
+            'Early Morning Prayer Meetings is on Mixlr and at Mon - Sat by 6:30 GMT +1'
           ),
+          _buildSectionColumn(context, 
+            'Inspirational messages', 
+            'assets/images/podcast.jpg', 
+            'Good Shepherd - Part 10'
+          ),
+          _buildSectionColumn(context, 
+            'iHope', 
+            'assets/images/ihope.jpg', 
+            'Keep Praising - September 4'
+          )
           
           
         ]
