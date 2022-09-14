@@ -15,6 +15,9 @@ class Home extends StatelessWidget {
     ) {
     return Column(
             children: <Widget>[
+              SizedBox(
+                height: 15 
+              ),
               Row(
                 // padding: EdgeInsets.symmetric(30.0, 50.0),
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -22,7 +25,7 @@ class Home extends StatelessWidget {
 
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(left: 15, top: 20),
+                    padding: EdgeInsets.only(left: 15),
                     child: Text(
                       title,
                       style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 14)),

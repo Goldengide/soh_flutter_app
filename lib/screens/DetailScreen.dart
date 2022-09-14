@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-// import 'package:palette_generator/palette_generator.dart';
+import 'package:palette_generator/palette_generator.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
@@ -11,24 +11,40 @@ class ScreenArguments {
   ScreenArguments(this.title, this.imageUrl);
 }
 
+class ColorFromImage {
+  PaletteGenerator paletteGenerator;
+  final String imageUrl;
+  ColorFromImage(this.paletteGenerator, this.imageUrl);
+
+  Future<PaletteGenerator> _updatePaletteGenerator(imageUrl) async {
+    paletteGenerator = await PaletteGenerator.fromImageProvider(
+      Image.asset(imageUrl).image,
+    );
+    return paletteGenerator;
+    // return paletteGenerator.dominantColor.color;
+  }
+
+  dynamic payloadResponse(imageUrl) {
+    return _updatePaletteGenerator(imageUrl).toString();
+  }
+}
+
 class DetailScreen extends StatelessWidget {
   const DetailScreen({
     super.key,
     });
 
   static const routeName = 'detailScreen';
-  
-
-
-
 
   // final String titleLabel;
 
 
-
   @override
   Widget build(BuildContext context) {
+    PaletteGenerator paletteGenerator;
     final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
+    // dynamic getColorFromImageResponse = ColorFromImage(paletteGenerator, args.imageUrl);
+    // String getColorText = getColorFromImageResponse.payloadResponse(args.imageUrl);
     return Scaffold(
       appBar: AppBar(
         title: Text(args.title),
@@ -38,7 +54,19 @@ class DetailScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           }
-        )
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.settings),
+            tooltip: 'Tap for Color',
+            onPressed: () {
+              final snackBar = SnackBar(
+                content: Text(args.imageUrl),
+                backgroundColor: Colors.red,
+              );
+            },
+          ),
+        ]
       ),
       body: Column(
         children: [
@@ -102,7 +130,7 @@ class DetailScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0),
                           child: Image.asset(
                             args.imageUrl, 
-                            width: MediaQuery.of(context).size.width,
+                            width: 300,
                             fit: BoxFit.cover
                           )
                         )
