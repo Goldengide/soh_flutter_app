@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'DetailScreen.dart';
+import 'detailscreens/Ihope.dart';
+import 'detailscreens/MorningPrayer.dart';
+import '../arguments/DetailScreenArguments.dart';
+import 'detailscreens/Podcast.dart';
+import '../widgets/BottomNavigationMenu.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -11,7 +16,8 @@ class Home extends StatelessWidget {
     BuildContext context, 
     String title, 
     String imageUrl, 
-    String desc
+    String desc,
+    String routeName,
     ) {
     return Column(
             children: <Widget>[
@@ -39,8 +45,8 @@ class Home extends StatelessWidget {
                       onPressed: () => {
                         Navigator.pushNamed(
                           context, 
-                          DetailScreen.routeName,
-                          arguments: ScreenArguments(title, imageUrl)
+                          routeName,
+                          arguments: DetailScreenArguments(title, imageUrl)
                           )
                       },
                     ),
@@ -54,7 +60,7 @@ class Home extends StatelessWidget {
 
               Container(
                 width: MediaQuery.of(context).size.width,
-                // height: ,
+                // height: 150,
                 margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 padding: EdgeInsets.all(0),
                 child: Stack(
@@ -157,48 +163,33 @@ class Home extends StatelessWidget {
           _buildSectionColumn(context, 
             'Message of the Month', 
             'assets/images/newmonth.jpg', 
-            'September  - Our month of Divine Surprises and Perfect Restoration'
+            'September  - Our month of Divine Surprises and Perfect Restoration',
+            Ihope.routeName
           ),
           
           _buildSectionColumn(context, 
             'Early Morning Prayer', 
             'assets/images/early-morning-prayers.jpg', 
-            'Early Morning Prayer Meetings is on Mixlr and at Mon - Sat by 6:30 GMT +1'
+            'Early Morning Prayer Meetings is on Mixlr and at Mon - Sat by 6:30 GMT +1',
+            DetailScreen.routeName
           ),
           _buildSectionColumn(context, 
             'Inspirational messages', 
             'assets/images/podcast.jpg', 
-            'Good Shepherd - Part 10'
+            'Good Shepherd - Part 10',
+            DetailScreen.routeName
           ),
           _buildSectionColumn(context, 
             'iHope', 
             'assets/images/ihope.jpg', 
-            'Keep Praising - September 4'
+            'Keep Praising - September 4',
+            DetailScreen.routeName
           )
           
           
         ]
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.apps, color: Colors.black, size: 30),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.video, color: Colors.black, size: 30),
-            label: 'Service',
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.bookBible, color: Colors.black, size: 30),
-            label: 'Bible',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.apps, color: Colors.black, size: 30),
-            label: 'More',
-          ),
-        ],
-      ),
+      bottomNavigationBar: BottomNavigationMenu(),
     );
   }
 }

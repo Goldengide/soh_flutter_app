@@ -2,20 +2,25 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:palette_generator/palette_generator.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../arguments/DetailScreenArguments.dart';
-import '../widgets/detailScreenHeader.dart';
-import '../widgets/BottomNavigationMenu.dart';
+import '../../widgets/DetailScreenHeader.dart';
+import '../../widgets/BottomNavigationMenu.dart';
+import '../../arguments/DetailScreenArguments.dart';
 
 
+class ScreenArguments {
+  final String title;
+  final String imageUrl;
+
+  ScreenArguments(this.title, this.imageUrl);
+}
 
 
-
-class DetailScreen extends StatelessWidget {
-  const DetailScreen({
+class MorningPrayer extends StatelessWidget {
+  const MorningPrayer({
     super.key,
     });
 
-  static const routeName = 'detailScreen';
+  static const routeName = 'morning-prayer';
 
 
 
