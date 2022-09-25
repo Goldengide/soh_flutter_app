@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           title: 'SSOH App',
           theme: ThemeData(
             primarySwatch: Colors.blue,
-            fontFamily: 'Montserrat'
+            fontFamily: 'OpenSans'
           ),
           initialRoute: '/',
           routes: {

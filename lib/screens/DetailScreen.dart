@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../arguments/DetailScreenArguments.dart';
 import '../widgets/detailScreenHeader.dart';
 import '../widgets/BottomNavigationMenu.dart';
+import '../widgets/AppBarNavigationDetails.dart';
 
 
 
@@ -24,28 +25,7 @@ class DetailScreen extends StatelessWidget {
     PaletteGenerator paletteGenerator;
     final args = ModalRoute.of(context)!.settings.arguments as DetailScreenArguments;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(args.title),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          tooltip: 'Previous',
-          onPressed: () {
-            Navigator.pop(context);
-          }
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.settings),
-            tooltip: 'Tap for Color',
-            onPressed: () {
-              final snackBar = SnackBar(
-                content: Text(args.imageUrl),
-                backgroundColor: Colors.red,
-              );
-            },
-          ),
-        ]
-      ),
+      appBar: AppBarNavigationDetails(),
       body: Column(
         children: [
           Expanded(
@@ -90,5 +70,4 @@ class DetailScreen extends StatelessWidget {
     );
   }
 }
-
 

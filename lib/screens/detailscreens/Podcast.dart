@@ -4,6 +4,7 @@ import 'package:palette_generator/palette_generator.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../widgets/DetailScreenHeader.dart';
 import '../../widgets/BottomNavigationMenu.dart';
+import '../../widgets/AppBarNavigationDetails.dart';
 import '../../arguments/DetailScreenArguments.dart';
 
 
@@ -30,28 +31,7 @@ class Podcast extends StatelessWidget {
     PaletteGenerator paletteGenerator;
     final args = ModalRoute.of(context)!.settings.arguments as DetailScreenArguments;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(args.title),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          tooltip: 'Previous',
-          onPressed: () {
-            Navigator.pop(context);
-          }
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.settings),
-            tooltip: 'Tap for Color',
-            onPressed: () {
-              final snackBar = SnackBar(
-                content: Text(args.imageUrl),
-                backgroundColor: Colors.red,
-              );
-            },
-          ),
-        ]
-      ),
+      appBar: AppBarNavigationDetails(),
       body: Column(
         children: [
           Expanded(

@@ -6,6 +6,7 @@ import 'detailscreens/MorningPrayer.dart';
 import '../arguments/DetailScreenArguments.dart';
 import 'detailscreens/Podcast.dart';
 import '../widgets/BottomNavigationMenu.dart';
+import '../widgets/AppBarNavigationHome.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -22,7 +23,7 @@ class Home extends StatelessWidget {
     return Column(
             children: <Widget>[
               SizedBox(
-                height: 15 
+                height: 10 
               ),
               Row(
                 // padding: EdgeInsets.symmetric(30.0, 50.0),
@@ -31,13 +32,13 @@ class Home extends StatelessWidget {
 
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(left: 15),
+                    padding: EdgeInsets.only(left: 25),
                     child: Text(
                       title,
                       style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 14)),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(right: 20),
+                    padding: EdgeInsets.only(right: 25),
                     child: IconButton(
                       iconSize: 20, 
                       icon: Icon(Icons.arrow_forward), 
@@ -60,8 +61,8 @@ class Home extends StatelessWidget {
 
               Container(
                 width: MediaQuery.of(context).size.width,
-                // height: 150,
-                margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                height: 200,
+                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
                 padding: EdgeInsets.all(0),
                 child: Stack(
                   // fit: StackFit.expand,
@@ -80,7 +81,7 @@ class Home extends StatelessWidget {
 
               Container(
                 width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.only(left: 15),
+                padding: EdgeInsets.only(left: 25, right: 25),
                 child:Text(
                       desc, 
                       style: TextStyle(color: Colors.black, fontSize: 12),
@@ -97,7 +98,16 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Welcome')),
+      appBar: AppBar(
+        title: Text('Welcome'),
+        leading: IconButton(
+          icon: Icon(Icons.waving_hand_sharp),
+          tooltip: 'Home/Menu',
+          onPressed: () {
+            // Navigator.pop(context);
+          }
+        )
+      ),
       body: ListView(
         padding: EdgeInsets.all(0.0),
         children: <Widget>[
@@ -171,7 +181,7 @@ class Home extends StatelessWidget {
             'Early Morning Prayer', 
             'assets/images/early-morning-prayers.jpg', 
             'Early Morning Prayer Meetings is on Mixlr and at Mon - Sat by 6:30 GMT +1',
-            DetailScreen.routeName
+            MorningPrayer.routeName
           ),
           _buildSectionColumn(context, 
             'Inspirational messages', 
@@ -183,7 +193,7 @@ class Home extends StatelessWidget {
             'iHope', 
             'assets/images/ihope.jpg', 
             'Keep Praising - September 4',
-            DetailScreen.routeName
+            Ihope.routeName
           )
           
           

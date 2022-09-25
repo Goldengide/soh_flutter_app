@@ -33,6 +33,7 @@ dependencies:
   flutter_screenutil: ^5.5.4
   palette_generator: ^0.3.3+2
   provider: ^6.0.3
+  http: ^0.13.5
 
 dev_dependencies:
   flutter_test:
@@ -73,12 +74,12 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Montserrat
+    - family: OpenSans
       fonts:
-        - asset: assets/fonts/Montserrat-Regular.ttf
-        - asset: assets/fonts/Montserrat-Italic.ttf
+        - asset: assets/fonts/OpenSans-Regular.ttf
+        - asset: assets/fonts/OpenSans-Italic.ttf
           style: italic
-        - asset: assets/fonts/Montserrat-Bold.ttf
+        - asset: assets/fonts/OpenSans-Bold.ttf
           weight: 700
         # - asset: assets/fonts/Montserrat-Medium.ttf
         #   weight: bold

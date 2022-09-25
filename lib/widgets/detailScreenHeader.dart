@@ -90,46 +90,50 @@ class PaletteSwatches extends StatelessWidget {
       return Container();
     }
     
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        Positioned(
-            top: 0,
-            child: Container(
-                height: 250,
-                width: MediaQuery.of(context).size.width,
-                color: paletteGen.dominantColor?.color,
-            )
-        ),
-        Positioned(
-            top: 40,
-            left: 0,
-            height: 250,
-            width: MediaQuery.of(context).size.width,
-            child: Align(
-                alignment: Alignment.center,
-                child: Container(
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    // height: ,
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    padding: EdgeInsets.all(0),
-                    child: Stack(
-                        // fit: StackFit.expand,
-                        children: [
-                        ClipRRect(
-                            borderRadius: BorderRadius.circular(10.0),
-                            child: Image.asset(
-                                imageAddress?? 'assets/images/noimage.jpg',
-                                width: MediaQuery.of(context).size.width,
-                                fit: BoxFit.cover
-                            )
-                        )
-                    ]
-                    )
-                ),
-            ),
-        ),
-      ]
+    return Container(
+      height: 300,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Positioned(
+              top: 0,
+              child: Container(
+                  height: 250,
+                  width: MediaQuery.of(context).size.width,
+                  color: paletteGen.dominantColor?.color,
+              )
+          ),
+          Positioned(
+              top: 40,
+              left: 0,
+              height: 250,
+              width: MediaQuery.of(context).size.width,
+              child: Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      // height: ,
+                      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                      padding: EdgeInsets.all(0),
+                      child: Stack(
+                          // fit: StackFit.expand,
+                          children: [
+                          ClipRRect(
+                              borderRadius: BorderRadius.circular(10.0),
+                              child: Image.asset(
+                                  imageAddress?? 'assets/images/noimage.jpg',
+                                  width: MediaQuery.of(context).size.width,
+                                  fit: BoxFit.cover
+                              )
+                          )
+                      ]
+                      )
+                  ),
+              ),
+          ),
+        ]
+      )
     );
+    
   }
 }
